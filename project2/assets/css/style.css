@@ -1,0 +1,165 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background-image: linear-gradient(to top, rgb(183, 145, 201), rgb(152, 142, 243));
+    min-height: calc(var(--vh, 1vh) * 100);
+}
+
+#mainContainer {
+    min-height: calc(var(--vh, 1vh) * 88);
+    vertical-align: middle;
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 256px;
+    color: #fff;
+}
+
+#contentContainer {
+    width: 100%;
+    padding-bottom: 50px;
+    text-align: center;
+    vertical-align: middle;
+    align-self: center;
+    min-height: 200px;
+    margin-inline: auto;
+}
+
+#buttonContainer {
+    margin-top: 30px;
+    min-height: 50px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+a.gameButton:hover,
+a.gameButton {
+    text-decoration: none;
+}
+
+.gameButton {
+    padding: 14px;
+    box-shadow: 2px 2px #464646;
+    background-image: linear-gradient(to bottom, rgb(120, 90, 163), rgb(93, 56, 180));
+    border: 1px solid #464646;
+    margin-bottom: 15px;
+    color: #fff;
+    display: block;
+    letter-spacing: 1px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.gameButton-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    width: auto;
+}
+
+.gameButton-md {
+    padding: 10px 15px;
+    font-size: 14px;
+    width: 120px;
+}
+
+.gameButton:hover {
+    color: #fff;
+    background-image: linear-gradient(to bottom, rgb(117, 79, 172), rgb(70, 36, 150));
+}
+
+@media (min-width: 500px) {
+    #contentContainer {
+        width: 450px;
+    }
+}
+
+#headerButtonContainer {
+    padding: 15px 5px 5px 5px;
+}
+
+.headerButton > i {
+    border: 4px solid #fff;
+    border-radius: 50%;
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 24px;
+    color: #fff;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    text-align: center;
+}
+
+#cardContainer {
+    margin: auto;
+}
+.hidden {
+    display: none;
+}
+.gameCard {
+    border: 1px solid rgb(85, 85, 85);
+    height: 80px;
+    cursor: default;
+    text-align: center;
+    background-color: #ffcbf1;
+    padding: 5px;
+}
+
+.gameCard > img {
+    height: 100%;
+}
+
+.gameCard.clickEnabled {
+    cursor: pointer;
+}
+.gameCard.clickEnabled:hover {
+    background-color: rgba(58, 58, 83, 0.3);
+}
+
+#gameTimeContainer {
+    height: 35px;
+}
+
+.modal-header {
+    background-color: #dedeff;
+}
+
+.modal-body {
+    min-height: 70vh;
+    padding: 20px 20px 40px 20px;
+}
+
+.modal-body.content-align-center {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+
+.modal-body.content-align-center > div {
+    width: 100%;
+}
+
+.modal-body > div.text-center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.modal-body > div.text-center > h2 {
+    width: 100%;
+}
+
+.nav-pills .nav-link {
+    color: #212529;
+}
+
+.nav-pills .nav-link.active {
+    background-color: #4d487a;
+}
