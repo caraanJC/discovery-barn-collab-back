@@ -64,7 +64,7 @@ function updateLeaderboard(levelLeaderboard, playerNameTimeArray) {
         } else {
             levelRankingArray.push(playerNameTimeArray);
             levelRankingArray = levelRankingArray.sort(sortFunction);
-            levelRankingArray.pop();
+            let temp = levelRankingArray.pop();
             localStorage.setItem(levelLeaderboard.toLowerCase(), JSON.stringify(levelRankingArray));
         }
     } else {

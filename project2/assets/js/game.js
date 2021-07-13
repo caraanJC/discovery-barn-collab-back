@@ -10,7 +10,7 @@ let windowUrl = new URL(window.location);
 let selectedLevel = windowUrl.searchParams.get("level");
 
 /* check if level parameter exist and if is valid, else go back to select level page */
-if (levelOptions.indexOf(selectedLevel.toLowerCase()) < 0) {
+if (selectedLevel == null || levelOptions.indexOf(selectedLevel.toLowerCase()) < 0) {
     window.location.href = "level.html";
 }
 
@@ -209,7 +209,8 @@ function printCards(cardCollection, targetDiv) {
                             let now = new Date();
                             now = now.toLocaleString();
                             showMessage("Well Done!<br>You've opened all the cards.", "<br>Time: " + remTime + " seconds");
-                            updateLeaderboard(selectedLevel, ["Player 1", remTime, now]);
+                            let currentPlayerName = localStorage.getItem("playerName");
+                            updateLeaderboard(selectedLevel, [currentPlayerName, remTime, now]);
                         } else {
                             removeCardSelection();
                             enableCardClick();
@@ -346,4 +347,43 @@ newGameButton.addEventListener("click", function () {
         resetGame();
         document.getElementById("gameMessageModal").removeEventListener("hidden.bs.modal", function () {});
     });
+});
+
+let renamePlayerModal = document.getElementById("renamePlayerModal");
+let renameModal = new bootstrap.Modal(renamePlayerModal);
+let playerNameInput = document.getElementById("renamePlayerModal-nameField");
+let savePlayerNameButton = document.getElementById("renamePlayerModal-saveButton");
+let playerNameText = document.querySelector(".playerNameTextContainer>span");
+let assignedPlayerName = localStorage.getItem("playerName");
+if (assignedPlayerName == null) {
+    localStorage.setItem("playerName", "Player 1");
+    assignedPlayerName = "Player 1";
+    playerNameText.textContent = assignedPlayerName;
+}
+
+/* Gets current player name */
+playerNameText.textContent = assignedPlayerName;
+renamePlayerModal.addEventListener("shown.bs.modal", function (event) {
+    assignedPlayerName = localStorage.getItem("playerName");
+    playerNameInput.value = assignedPlayerName;
+    playerNameInput.select();
+});
+
+/* Removes validation when key is pressed */
+playerNameInput.addEventListener("keypress", function () {
+    this.closest("div").classList.remove("was-validated");
+});
+
+/* Saves new player name */
+savePlayerNameButton.addEventListener("click", function () {
+    let playerName = playerNameInput.value;
+    if (playerName.trim() == "") {
+        playerNameInput.closest("div").classList.add("was-validated");
+        playerNameInput.focus();
+    } else {
+        playerNameInput.closest("div").classList.remove("was-validated");
+        localStorage.setItem("playerName", playerName);
+        playerNameText.textContent = playerName;
+        renameModal.hide();
+    }
 });

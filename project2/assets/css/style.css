@@ -79,8 +79,23 @@ a.gameButton {
     }
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 #headerButtonContainer {
     padding: 15px 5px 5px 5px;
+}
+
+#headerButtonContainer > .playerNameTextContainer {
+    display: inline;
+    float: right;
+    color: rgb(255, 255, 255);
+    text-transform: capitalize;
+}
+
+#headerButtonContainer > .playerNameTextContainer > i {
+    margin-left: 10px;
 }
 
 .headerButton > i {
@@ -131,7 +146,7 @@ a.gameButton {
     background-color: #dedeff;
 }
 
-.modal-body {
+.modal-body.modal-body-min-height {
     min-height: 70vh;
     padding: 20px 20px 40px 20px;
 }
@@ -162,4 +177,8 @@ a.gameButton {
 
 .nav-pills .nav-link.active {
     background-color: #4d487a;
+}
+
+#pills-tabContent {
+    text-transform: capitalize;
 }

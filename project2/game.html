@@ -21,6 +21,7 @@
                 <a href="index.html" class='headerButton' id='goToHomeButton'" title='Home'><i class="fa fa-home"></i></a>
                 <a href="#" class='headerButton' id='displayLeaderboardButton'" title='Leaderboard' data-bs-toggle="modal" data-bs-target="#leaderboardsModal"><i class="fa fa-list"></i></a>
                 <a href="level.html" class='headerButton' id='selectLevelButton'" title='Select Level'><i class="fa fa-signal"></i></a>
+                <div class='playerNameTextContainer'>Player Name: <span></span> <i class="fa fa-edit pointer" title="Edit Name" href="#renamePlayerModal" data-bs-toggle='modal'></i></div>
             </div>
             <div class="row" id="mainContainer">
                 <div id="contentContainer">
@@ -61,7 +62,7 @@
                   <h5 class="modal-title">Game Over</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body content-align-center">
+                <div class="modal-body content-align-center modal-body-min-height">
                     <div class="col-md-12 text-center">
                         <h2 id='gameMessageModal-message1'></h2>
                         <h2 id='gameMessageModal-message2'></h2>
@@ -80,7 +81,7 @@
                         <h5 class="modal-title">Leaderboard</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body modal-body-min-height">
                         <div class="col-md-12">
                             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -137,6 +138,33 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="modal fade" tabindex="-1" id="renamePlayerModal">
+            <div class="modal-dialog ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Edit</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+                        <div class="col-sm-12">
+                            <label for="renamePlayerModal-nameField" class="col-form-label">Name of Player</label>
+                            <input type="text" class="form-control" id="renamePlayerModal-nameField" required>
+                            <div class="invalid-feedback">
+                                Please provide player name.
+                              </div>
+                        </div>
+                        
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id="renamePlayerModal-saveButton" class='gameButton gameButton-sm'>Save</button>
+                    <button id="renamePlayerModal-cancelButton" class='gameButton gameButton-sm' data-bs-dismiss="modal">Cancel</button>
+                </div>
+              </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
