@@ -1,0 +1,133 @@
+.App {
+    text-align: center;
+    background-color: #f1f1f1;
+    min-height: calc(var(--vh, 1vh) * 100);
+    font-size: 18px;
+    font-family: "Lato", sans-serif;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+img {
+    width: 100%;
+}
+
+.itemBoxContainer {
+    background-color: #282c34;
+    padding: 25px 20px;
+    color: #dbdbdb;
+}
+
+.itemBox {
+    border: 1px solid #fff;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+    color: #fff;
+    padding: 3px;
+}
+
+.itemBox-image {
+    width: 45%;
+    padding: 10px;
+}
+
+.itemBox-text {
+    width: 55%;
+    padding: 10px 5px;
+    text-align: left;
+    font-size: 24px;
+}
+
+Button.btn-primary {
+    color: #fff;
+    background-color: #546e8f;
+    border-color: #546e8f;
+}
+
+button.itemBox-button {
+    display: block;
+}
+
+button.myButton {
+    padding: 8px 15px;
+    min-width: 100px;
+}
+
+button.close {
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    padding: 0.25em 0.25em;
+    color: #000;
+    background: transparent
+        url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3E%3Cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3E%3C/svg%3E")
+        50%/1em auto no-repeat;
+
+    border: 0;
+    border-radius: 0.25rem;
+    opacity: 0.5;
+}
+
+button.close > span {
+    display: none;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.cart {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #e3e3e3;
+}
+
+.cart,
+.menu {
+    margin: 20px;
+}
+
+.cart button {
+    margin-right: 5px;
+}
+.cart .cartTitle {
+    font-weight: bold;
+    font-size: 30px;
+    padding: 20px 10px;
+    text-align: center;
+    border: 1px solid #e1e4e8;
+}
