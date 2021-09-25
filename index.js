@@ -16,7 +16,7 @@ app.use(cors());
 
 //DB CONNECTION
 const db = 'distance-learning';
-const host = 'mongodb+srv://root:<password>@distance-learning.jvmm9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const host = 'mongodb+srv://root:root@distance-learning.jvmm9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const connectionStr = `${host}/${db}`;
 mongoose.connect(connectionStr, {
 	useNewUrlParser: true,
