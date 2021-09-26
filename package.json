@@ -12,16 +12,13 @@
 	},
 	"devDependencies": {},
 	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node index.js"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://gitlab.com/uplift-code-camp/students/batch-5/kaye/projects.git"
-	},
-	"author": "kaye",
+	"author": "",
 	"license": "ISC",
-	"bugs": {
-		"url": "https://gitlab.com/uplift-code-camp/students/batch-5/kaye/projects/issues"
-	},
-	"homepage": "https://gitlab.com/uplift-code-camp/students/batch-5/kaye/projects#readme"
+	"engines": {
+		"node": "14.x",
+		"npm": "6.x"
+	}
 }
