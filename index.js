@@ -15,9 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 //DB CONNECTION
-const db = 'distance-learning';
-const host = 'mongodb+srv://root:root@distance-learning.jvmm9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-const connectionStr = `${host}/${db}`;
+const connectionStr = 'mongodb+srv://root:root@distance-learning.jvmm9.mongodb.net/distance-learning?retryWrites=true&w=majority';
 mongoose.connect(connectionStr, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
