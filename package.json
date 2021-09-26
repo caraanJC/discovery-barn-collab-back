@@ -1,0 +1,27 @@
+{
+  "name": "distance-learning-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.5",
+    "nodemon": "^2.0.12"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/uplift-code-camp/students/batch-5/kaye/projects.git"
+  },
+  "author": "kaye",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/uplift-code-camp/students/batch-5/kaye/projects/issues"
+  },
+  "homepage": "https://gitlab.com/uplift-code-camp/students/batch-5/kaye/projects#readme"
+}
