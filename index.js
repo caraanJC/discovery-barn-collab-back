@@ -15,10 +15,11 @@ app.use(express.json());
 app.use(cors());
 
 //DB CONNECTION
-const connectionStr = 'mongodb+srv://root:root@distance-learning.jvmm9.mongodb.net/distance-learning?retryWrites=true&w=majority';
+// const connectionStr = 'mongodb+srv://root:root@distance-learning.jvmm9.mongodb.net/distance-learning?retryWrites=true&w=majority';
+const connectionStr = 'mongodb://localhost:27017/distanceLearningApp';
 mongoose.connect(connectionStr, {
-	useNewUrlParser: true,
-	useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
 });
 
 //ROUTES
@@ -30,9 +31,9 @@ app.use('/api/students', studentRouter);
 app.use('/api/videos', videoRouter);
 
 app.get('/', (req, res) => {
-	res.send('Distance Learning API');
+    res.send('Distance Learning API');
 });
 
 app.listen(port, () => {
-	console.log(`Listening to port ${port}`);
+    console.log(`Listening to port ${port}`);
 });
