@@ -24,7 +24,6 @@ router.get('/:id', (req, res) => {
 
 //Create New Row
 router.post('/', (req, res) => {
-    console.log(req.body);
     programs.count({ name: req.body.name }).then(async (data) => {
         if (data > 0) {
             res.send({ success: false, message: 'Program Name Exists' });
@@ -89,6 +88,7 @@ router.delete('/:id', (req, res) => {
 
 // add Task
 router.post('/addTask', (req, res) => {
+    console.log(req.body);
     programs
         .findOneAndUpdate(
             { name: req.body.programName },
@@ -97,6 +97,7 @@ router.post('/addTask', (req, res) => {
             }
         )
         .then((data) => {
+            
             res.send({ success: true, message: 'Task Item Added' });
             logActivity(logs, {
                 module: 'PROGRAM',
