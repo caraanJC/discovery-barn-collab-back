@@ -5,7 +5,12 @@ const programSchema = new schema({
     name: String,
     active_flag: Boolean,
     task_list: [
-        { title: String, description: String, deadline: { type: Date } },
+        {
+            title: String,
+            description: String,
+            deadline: { type: Date },
+            file_type: String,
+        },
     ],
 });
 

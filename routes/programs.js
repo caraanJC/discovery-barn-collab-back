@@ -87,6 +87,13 @@ router.delete('/:id', (req, res) => {
     });
 });
 
+// GET Task
+router.get('/:program_id/getTasks', (req, res) => {
+    programs
+        .findById(req.params.program_id)
+        .then((data) => res.send(data.task_list));
+});
+
 // add Task
 router.post('/addTask', (req, res) => {
     programs

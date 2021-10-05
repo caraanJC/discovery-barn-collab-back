@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const logs = require('../models/logs');
 const videos = require('../models/videos');
 
+
 const logActivity = (logs, logDetails) => {
 	let newLog = new logs(logDetails);
 	newLog.save().then((data) => {
@@ -35,7 +36,9 @@ router.get('/info/:id', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-	videos.find({ program_id: req.params.id }).then((data) => {
+	const today = new Date();
+	today.toISOString().split('T')[0];
+	videos.find({ program_id: req.params.id, lesson_date : { $lte : today }, active_flag:true }).then((data) => {
 		res.send(data);
 	});
 });
@@ -62,8 +65,6 @@ router.put('/:id', (req, res) => {
 				description: req.body.description,
 				program_id: req.body.program_id,
 				lesson_date: req.body.lesson_date,
-				thumbnail_path: req.body.thumbnail_path,
-				video_path: req.body.video_path,
 				active_flag: req.body.active_flag,
 			},
 		})
@@ -75,6 +76,39 @@ router.put('/:id', (req, res) => {
 				created_date: new Date(),
 			});
 		});
+});
+
+//Update Row
+router.put('/upload-file/:id/:type', (req, res) => {
+	let type = req.params.type;
+	let updateVal;
+	let uploadDescription;
+	if(type=='IMG'){
+		updateVal = {thumbnail_path:req.body.path};
+		uploadDescription = "Uploaded Image";
+	}
+	else if(type=='VID'){
+	    updateVal = {video_path:req.body.path};
+		uploadDescription = "Uploaded Video";
+	}
+
+	if(updateVal!=null){
+		videos
+			.findByIdAndUpdate(req.params.id, {
+				$set: updateVal
+			})
+			.then((data) => {
+				res.send({ success: true, message: uploadDescription });
+				logActivity(logs, {
+					module: 'VIDEO',
+					details: uploadDescription,
+					created_date: new Date(),
+				});
+			});
+	}
+	else{
+		res.send({ success: false, message: 'Invalid Upload Type' });
+	}
 });
 
 //Delete Row
