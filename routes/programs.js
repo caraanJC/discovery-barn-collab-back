@@ -24,7 +24,6 @@ router.get('/:id', (req, res) => {
 
 //Create New Row
 router.post('/', (req, res) => {
-    console.log(req.body);
     programs.count({ name: req.body.name }).then(async (data) => {
         if (data > 0) {
             res.send({ success: false, message: 'Program Name Exists' });
@@ -92,6 +91,12 @@ router.get('/:program_id/getTasks', (req, res) => {
     programs
         .findById(req.params.program_id)
         .then((data) => res.send(data.task_list));
+    //Get Program Tasks
+});
+router.get('/program-tasks/:program', (req, res) => {
+    programs.findById(req.params.program).then((data) => {
+        res.send(data.task_list);
+    });
 });
 
 // add Task

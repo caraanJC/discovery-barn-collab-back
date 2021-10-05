@@ -7,6 +7,7 @@ const logRouter = require('./routes/logs');
 const parentRouter = require('./routes/parents');
 const studentRouter = require('./routes/students');
 const videoRouter = require('./routes/videos');
+const announcementRouter = require('./routes/announcements');
 
 const app = express();
 const port = process.env.PORT || 8000;
@@ -29,6 +30,7 @@ app.use('/api/logs', logRouter);
 app.use('/api/parents', parentRouter);
 app.use('/api/students', studentRouter);
 app.use('/api/videos', videoRouter);
+app.use('/api/announcements', announcementRouter);
 
 app.get('/', (req, res) => {
     res.send('Distance Learning API');
