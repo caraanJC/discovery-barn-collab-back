@@ -115,4 +115,11 @@ router.post('/:student_id/submissions/upload', (req, res) => {
         .then((data) => res.send('Submission Successful'));
 });
 
+// Add a Submission
+router.get('/:student_id/submissions/getSubmissions', (req, res) => {
+    students
+        .findById(req.params.student_id)
+        .then((data) => res.send(data.submissions));
+});
+
 module.exports = router;
