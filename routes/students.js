@@ -44,6 +44,47 @@ router.get('/', (req, res) => {
 		});
 });
 
+router.get('/program-students/:programId', (req, res) => {
+	students.find({ program_id: req.params.programId }).then((data) => {
+		res.send(data);
+	});
+});
+
+router.post('/all-submissions', (req, res) => {
+	let filters = {};
+	if (req.body.program !== '' && req.body.program !== undefined) {
+		filters.program_id = req.body.program;
+	}
+	if (req.body.student !== '' && req.body.student !== undefined) {
+		filters._id = req.body.student;
+	}
+	students.find(filters).then((data) => {
+		let test = [];
+		data.map((student) => {
+			student.submissions.map((s) => {
+				let t;
+				if (s.task_title === req.body.task || req.body.task === undefined || req.body.task === '') {
+					t = {
+						student_name: student.first_name + ' ' + student.last_name,
+						file_path: s.file_path,
+						file_name: s.file_name,
+						reference: s.reference,
+						task_title: s.task_title,
+						date_submitted: s.date_submitted
+					};
+					test.push(t);
+				}
+
+				return;
+			});
+
+			return;
+		});
+
+		res.send(test);
+	});
+});
+
 //Create New Row
 router.post('/', (req, res) => {
 	let newParent = new students(req.body);
